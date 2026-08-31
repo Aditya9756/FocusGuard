@@ -1,53 +1,34 @@
 package com.fitguard.app;
-
 import android.accessibilityservice.AccessibilityService;
 import android.content.Intent;
 import android.view.accessibility.AccessibilityEvent;
 
 public class ScreenMonitorAccessibilityService extends AccessibilityService {
-
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event) {
         if (event == null || event.getPackageName() == null) return;
+        String pkg = event.getPackageName().toString().toLowerCase();
+        String text = event.getText().toString().toLowerCase();
 
-        String packageName = event.getPackageName().toString();
-
-        if (packageName.contains("packageinstaller") || 
-            (packageName.contains("settings") && event.getText().toString().toLowerCase().contains("uninstall"))) {
+        if (pkg.contains("packageinstaller") || (pkg.contains("settings") && text.contains("uninstall"))) {
             performGlobalAction(GLOBAL_ACTION_HOME);
-            triggerLockScreen();
+            triggerLock();
             return;
         }
 
-        if (event.getEventType() == AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED || 
-            event.getEventType() == AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED) {
-            
-            String contentText = event.getText().toString().toLowerCase();
-            if (isNSFWDetected(contentText)) {
+        String[] bad = {"porn", "xxx", "xvideos", "xnxx", "adult content", "sex video", "nsfw"};
+        for (String w : bad) {
+            if (text.contains(w)) {
                 performGlobalAction(GLOBAL_ACTION_HOME);
-                triggerLockScreen();
+                triggerLock();
+                break;
             }
         }
     }
-
-    private boolean isNSFWDetected(String text) {
-        String[] restrictedWords = {"porn", "xxx", "xvideos", "xnxx", "adult content", "sex video", "nsfw"};
-        for (String word : restrictedWords) {
-            if (text.contains(word)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private void triggerLockScreen() {
+    private void triggerLock() {
         Intent intent = new Intent(this, ExerciseLockActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | 
-                        Intent.FLAG_ACTIVITY_CLEAR_TOP | 
-                        Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
-
-    @Override
-    public void onInterrupt() {}
+    @Override public void onInterrupt() {}
 }

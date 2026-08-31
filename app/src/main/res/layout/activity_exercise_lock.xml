@@ -3,55 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000">
-
+    android:background="#000">
     <androidx.camera.view.PreviewView
-        android:id="@+id/cameraPreview"
+        android:id="@+id/previewView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-
-    <LinearLayout
+    <TextView
+        android:id="@+id/tvStatus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="#B3000000"
+        android:background="#99000000"
         android:padding="20dp"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="LOCK ACTIVATED!"
-            android:textColor="#FF1744"
-            android:textSize="22sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/tvTargetReps"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Target: 0 / 10 Squats"
-            android:textColor="#00E676"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginTop="6dp"/>
-
-        <TextView
-            android:id="@+id/tvLiveAngle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Live Knee Angle: --"
-            android:textColor="#FFD600"
-            android:textSize="16sp"
-            android:layout_marginTop="4dp"/>
-
-        <TextView
-            android:id="@+id/tvPostureFeedback"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Camera ke samne khade hokar squats karein..."
-            android:textColor="#FFFFFF"
-            android:textSize="14sp"
-            android:layout_marginTop="6dp"/>
-    </LinearLayout>
+        android:text="Squats: 0 / 10"
+        android:textColor="#00FF66"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
