@@ -1,0 +1,10 @@
+<resources>
+    <style name="Theme.FitGuard" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">#00E676</item>
+        <item name="android:statusBarColor">#121212</item>
+    </style>
+    <style name="Theme.FitGuard.FullScreenLock" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+    </style>
+</resources>

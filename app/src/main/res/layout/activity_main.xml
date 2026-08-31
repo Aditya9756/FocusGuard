@@ -3,51 +3,58 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="24dp"
+    android:padding="20dp"
+    android:background="#121212"
     android:gravity="center_horizontal">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="FocusGuard"
-        android:textSize="32sp"
+        android:text="FitGuard Protection"
+        android:textColor="#00E676"
+        android:textSize="24sp"
         android:textStyle="bold"
-        android:layout_marginTop="24dp" />
+        android:layout_marginTop="20dp"/>
 
     <TextView
-        android:id="@+id/statusText"
+        android:id="@+id/tvStatus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Focus mode is OFF"
-        android:textSize="18sp"
-        android:gravity="center"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="24dp" />
-
-    <Button
-        android:id="@+id/focusButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Start Focus Session" />
-
-    <Button
-        android:id="@+id/exerciseButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Open Wellness Break"
-        android:layout_marginTop="12dp" />
-
-    <Button
-        android:id="@+id/settingsButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Settings"
-        android:layout_marginTop="12dp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="FocusGuard is a self-control and wellness timer. It does not secretly monitor private content."
+        android:textColor="#FFFFFF"
         android:textSize="14sp"
-        android:layout_marginTop="28dp" />
+        android:layout_marginTop="20dp"
+        android:background="#1E1E1E"
+        android:padding="16dp"/>
+
+    <Button
+        android:id="@+id/btnAdmin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="1. Enable Anti-Uninstall Admin"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#2979FF"/>
+
+    <Button
+        android:id="@+id/btnAccessibility"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="2. Enable Accessibility Blocker"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#651FFF"/>
+
+    <Button
+        android:id="@+id/btnOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="3. Allow Overlay Permission"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#FF9100"/>
+
+    <Button
+        android:id="@+id/btnTestLock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Test Exercise Lock Screen"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="#D50000"/>
 </LinearLayout>

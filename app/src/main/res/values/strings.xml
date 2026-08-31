@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">FocusGuard</string>
+    <string name="app_name">FitGuard</string>
+    <string name="accessibility_description">FitGuard real-time screen protection aur adult blocker service.</string>
 </resources>
